@@ -13,12 +13,15 @@ public class ShootScript : MonoBehaviour
 	public Image background;
 	public Text bulletsText;
 
+	private Transform man;
+
 	// Use this for initialization
 	void Start ()
 	{
 		selectedMagazine = 0;
 		foreach (Magazine magazine in magazines)
 			magazine.setDefaults ();
+		man = transform.Find ("Turret/ManWithButton/Man");
 		
 		
 	}
@@ -35,6 +38,8 @@ public class ShootScript : MonoBehaviour
 	public void Fire ()
 	{
 		if (magazines [selectedMagazine].remainingBullets > 0) {
+			if (man.parent.gameObject.activeSelf)
+				man.GetComponent<Animator> ().SetTrigger ("Shoot");
 			magazines [selectedMagazine].remainingBullets--;
 			Debug.Log ("Fire");
 			Bullet bullet = magazines [selectedMagazine].bullet;

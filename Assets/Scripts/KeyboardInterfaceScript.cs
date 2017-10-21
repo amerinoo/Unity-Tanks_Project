@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KeyboardInterfaceScript : MonoBehaviour
 {
@@ -51,5 +52,8 @@ public class KeyboardInterfaceScript : MonoBehaviour
 		if (Input.GetButtonDown ("Fire3"))
 			tms.HideBody ();
 		
+		if (Input.GetButtonDown ("Fire4"))
+			SceneManager.LoadScene ("main");
+
 	}
 }

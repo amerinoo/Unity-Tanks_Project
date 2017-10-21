@@ -87,7 +87,7 @@ public class TankMovementScript : MonoBehaviour
 
 	public void HideBody ()
 	{
-		GameObject go = transform.Find ("Turret/Body").gameObject;
+		GameObject go = transform.Find ("Turret/ManWithButton").gameObject;
 		go.SetActive (!go.activeSelf);
 	}
 }
