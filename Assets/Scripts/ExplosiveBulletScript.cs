@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class ExplosiveBulletScript : MonoBehaviour
 {
-	[SerializeField]
-	public GameObject smokePrefab;
-	[SerializeField]
-	public GameObject explosionPrefab;
-
+	Bullet bullet;
 	bool hasHit = false;
 	GameObject smoke;
-	float exposionRadious = 5.0f;
+
+	public void init (Bullet b)
+	{
+		bullet = b;
+		smoke = Instantiate (b.smokePrefab, transform.position, transform.rotation) as GameObject;
+	}
 
 	void Start ()
 	{
-		smoke = Instantiate (smokePrefab, transform.position, transform.rotation) as GameObject;
+		
 
 	}
 	
@@ -30,17 +31,16 @@ public class ExplosiveBulletScript : MonoBehaviour
 				if (hit.distance < transform.GetComponent<Rigidbody> ().velocity.magnitude * 2.0f * Time.deltaTime) {
 					Debug.Log ("Hit");
 					hasHit = true;
-					Instantiate (explosionPrefab, hit.point, transform.rotation);
-					foreach (Collider item in Physics.OverlapSphere (hit.point, exposionRadious)) {
+					Destroy (Instantiate (bullet.explosionPrefab, hit.point, transform.rotation), 1.0f);
+					foreach (Collider item in Physics.OverlapSphere (hit.point, bullet.explosionRadius)) {
 						Rigidbody rb = item.GetComponent<Rigidbody> ();
 						if (rb != null)
-							rb.AddExplosionForce (500.0f, hit.point, exposionRadious);
+							rb.AddExplosionForce (bullet.explosionForce, hit.point, bullet.explosionRadius);
 					}
 					Destroy (gameObject, 0.3f);
 				}
 			}
 		}
-
 	}
 
 	void OnDestroy ()

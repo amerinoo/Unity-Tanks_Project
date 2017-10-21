@@ -6,18 +6,18 @@ public class TankMovementScript : MonoBehaviour
 {
 	public float speedLinear = 15.0f;
 	public float speedRotate = 1.0f;
-	public float bulletSpeed = 80.0f;
-	public GameObject bulletPrefab;
-	public Transform bulletSpawn;
 
 	private Rigidbody rb;
 	private List<Transform> continuousTracks;
 	private float forward, left;
+	private Transform turret;
+	private Transform canon;
 
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody> () as Rigidbody;
-		//turret = transform.Find ("Turret");
+		turret = transform.Find ("Turret");
+		canon = transform.Find ("Turret/CanonParent/Canon");
 		continuousTracks = new List<Transform> ();
 		foreach (Transform child in transform) {
 			if (child.CompareTag ("ContinuousTrack"))
@@ -39,50 +39,55 @@ public class TankMovementScript : MonoBehaviour
 
 	}
 
-	public void MoveForward (float h = 1.0f)
+	public void MoveForward (float v = 1.0f)
 	{
 		forward = 1.0f;
-		rb.velocity = transform.forward * speedLinear * h;
+		rb.velocity = transform.forward * speedLinear * v;
 	}
 
-	public void MoveBackward (float h = -1.0f)
+	public void MoveBackward (float v = -1.0f)
 	{
 		forward = -1.0f;
-		rb.velocity = transform.forward * speedLinear * h;
+		rb.velocity = transform.forward * speedLinear * v;
 	}
 
-	public void TurnLeft (float v = -1.0f)
+	public void TurnLeft (float h = -1.0f)
 	{
 		left = -1.0f;
-		rb.MoveRotation (Quaternion.Euler (0.0f, speedRotate * v, 0.0f) * rb.rotation);
+		rb.MoveRotation (Quaternion.Euler (0.0f, speedRotate * h, 0.0f) * rb.rotation);
 	}
 
-	public void TurnRight (float v = 1.0f)
+	public void TurnRight (float h = 1.0f)
 	{
 		left = 1.0f;
-		rb.MoveRotation (Quaternion.Euler (0.0f, speedRotate * v, 0.0f) * rb.rotation);
+		rb.MoveRotation (Quaternion.Euler (0.0f, speedRotate * h, 0.0f) * rb.rotation);
 	}
 
-
-	[SerializeField]
-	public GameObject explosionPrefab;
-
-	public void Fire ()
+	public void TurnTurretLeft (float ht = -1.0f)
 	{
-		Debug.Log ("Fire");
-		// Create the Bullet from the Bullet Prefab
-		var bullet = (GameObject)Instantiate (bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+		turret.Rotate (turret.up, speedRotate * ht);
+	}
 
-		// Add velocity to the bullet
-		bullet.GetComponent<Rigidbody> ().velocity = bullet.transform.forward * bulletSpeed;
-		Instantiate (explosionPrefab, bulletSpawn.position, bulletSpawn.rotation);
-		// Destroy the bullet after 3 seconds
-		Destroy (bullet, 3.0f);        
+	public void TurnTurretRight (float ht = 1.0f)
+	{
+		turret.Rotate (turret.up, speedRotate * ht);
+	}
+
+	public void TurnTurretDown (float vt = -1.0f)
+	{
+		if (canon.rotation.eulerAngles.x > 355.0f)
+			canon.Rotate (speedRotate * vt, 0.0f, 0.0f);
+	}
+
+	public void TurnTurretUp (float vt = 1.0f)
+	{
+		if (canon.rotation.eulerAngles.x + 1 < 360.0f)
+			canon.Rotate (speedRotate * vt, 0.0f, 0.0f);
 	}
 
 	public void HideBody ()
 	{
-		GameObject go = transform.Find ("Body").gameObject;
+		GameObject go = transform.Find ("Turret/Body").gameObject;
 		go.SetActive (!go.activeSelf);
 	}
 }
