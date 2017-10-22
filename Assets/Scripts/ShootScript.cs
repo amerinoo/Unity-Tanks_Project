@@ -9,7 +9,7 @@ public class ShootScript : MonoBehaviour
 	public GameObject shootExplosionPrefab;
 
 	private int selectedMagazine;
-	private Transform man;
+	private Transform manWithButton;
 	private Transform canon;
 	private Transform bulletSpawn;
 	private HudControllerScript hcs;
@@ -20,7 +20,7 @@ public class ShootScript : MonoBehaviour
 		selectedMagazine = 0;
 		foreach (Magazine magazine in magazines)
 			magazine.setDefaults ();
-		man = transform.Find ("Turret/ManWithButton/Man");
+		manWithButton = transform.Find ("Turret/ManWithButton");
 		canon = transform.Find ("Turret/CanonParent/Canon");
 		bulletSpawn = canon.Find ("BulletSpawn");
 		hcs = GetComponent<HudControllerScript> ();
@@ -46,8 +46,8 @@ public class ShootScript : MonoBehaviour
 
 	void AnimateMan ()
 	{
-		if (man.parent.gameObject.activeSelf)
-			man.GetComponent<Animator> ().SetTrigger ("Shoot");
+		if (manWithButton.parent.gameObject.activeSelf)
+			manWithButton.GetComponent<Animator> ().SetTrigger ("Shoot");
 	}
 
 	void AnimateCanon ()

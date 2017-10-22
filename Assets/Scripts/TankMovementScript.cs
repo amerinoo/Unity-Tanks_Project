@@ -12,6 +12,8 @@ public class TankMovementScript : MonoBehaviour
 	private float forward, left;
 	private Transform turret;
 	private Transform canon;
+	private float minAngleTurret = 0.0f;
+	private float maxAngleTurret = 355.0f;
 
 	void Start ()
 	{
@@ -73,15 +75,19 @@ public class TankMovementScript : MonoBehaviour
 		turret.Rotate (turret.up, speedRotate * ht);
 	}
 
-	public void TurnTurretDown (float vt = -1.0f)
+	public void TurnTurretUp (float vt = 1.0f)
 	{
-		if (canon.rotation.eulerAngles.x > 355.0f)
+		if (canon.eulerAngles.x < minAngleTurret + 1.0f)
+			canon.Rotate (speedRotate * vt, 0.0f, 0.0f);
+		else if (canon.eulerAngles.x > maxAngleTurret)
 			canon.Rotate (speedRotate * vt, 0.0f, 0.0f);
 	}
 
-	public void TurnTurretUp (float vt = 1.0f)
+	public void TurnTurretDown (float vt = -1.0f)
 	{
-		if (canon.rotation.eulerAngles.x + 1 < 360.0f)
+		if (canon.eulerAngles.x < minAngleTurret)
+			canon.Rotate (speedRotate * vt, 0.0f, 0.0f);
+		else if (canon.eulerAngles.x > maxAngleTurret - 1.0f)
 			canon.Rotate (speedRotate * vt, 0.0f, 0.0f);
 	}
 

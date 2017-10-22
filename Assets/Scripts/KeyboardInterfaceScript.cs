@@ -34,9 +34,9 @@ public class KeyboardInterfaceScript : MonoBehaviour
 			tms.TurnRight (h);
 		
 		if (vt < -0.1f)
-			tms.TurnTurretDown (vt);
-		else if (vt > 0.1f)
 			tms.TurnTurretUp (vt);
+		else if (vt > 0.1f)
+			tms.TurnTurretDown (vt);
 
 		if (ht < -0.1f)
 			tms.TurnTurretLeft (ht);
