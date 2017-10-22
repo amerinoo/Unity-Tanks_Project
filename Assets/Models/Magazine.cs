@@ -14,4 +14,13 @@ public class Magazine
 	{
 		remainingBullets = maxBullets;
 	}
+
+	public bool HasBullets {
+		get{ return remainingBullets > 0; }
+	}
+
+	public void Substract ()
+	{
+		remainingBullets--;
+	}
 }

@@ -29,7 +29,6 @@ public class ExplosiveBulletScript : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
 				if (hit.distance < transform.GetComponent<Rigidbody> ().velocity.magnitude * 2.0f * Time.deltaTime) {
-					Debug.Log ("Hit");
 					hasHit = true;
 					Destroy (Instantiate (bullet.explosionPrefab, hit.point, transform.rotation), 1.0f);
 					foreach (Collider item in Physics.OverlapSphere (hit.point, bullet.explosionRadius)) {
@@ -41,10 +40,5 @@ public class ExplosiveBulletScript : MonoBehaviour
 				}
 			}
 		}
-	}
-
-	void OnDestroy ()
-	{
-		smoke.GetComponent<DestroySmokeScript> ().Destroy ();
 	}
 }

@@ -55,5 +55,8 @@ public class KeyboardInterfaceScript : MonoBehaviour
 		if (Input.GetButtonDown ("Fire4"))
 			SceneManager.LoadScene ("main");
 
+		if (Input.GetButtonDown ("Fire5"))
+			ss.CheckDistance ();
+		
 	}
 }

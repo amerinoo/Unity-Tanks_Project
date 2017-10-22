@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ContinuousTrack
   - Wheel
+  - Cubes
+  - Enemy
   layers:
   - Default
   - TransparentFX

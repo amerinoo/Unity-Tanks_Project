@@ -15,4 +15,8 @@ public class Bullet
 	public float explosionRadius = 5.0f;
 	public float explosionForce = 500.0f;
 	public float scalarFactor = 1.0f;
+
+	public float Distance {
+		get { return speed * time; }
+	}
 }
