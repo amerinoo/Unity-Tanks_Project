@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class HudControllerScript : MonoBehaviour
 {
 	public GameObject bulletsCounter;
+	public GameObject healthCounter;
 	public GameObject cross;
 
 	private Image background;
 	private Text bulletsText;
+	private Text healthText;
 	private CrossColorScript ccs;
 	private float time = 1.0f;
 
@@ -18,6 +20,7 @@ public class HudControllerScript : MonoBehaviour
 	{
 		background = bulletsCounter.transform.Find ("Background").GetComponent<Image> ();
 		bulletsText = bulletsCounter.transform.Find ("BulletsText").GetComponent<Text> ();
+		healthText = healthCounter.transform.Find ("HealthText").GetComponent<Text> ();
 		ccs = cross.GetComponent<CrossColorScript> ();
 	}
 	
@@ -32,6 +35,11 @@ public class HudControllerScript : MonoBehaviour
 		background.color = c;
 		bulletsText.color = (new Vector3 (c.g, c.r, c.b).magnitude > 1.0f) ? Color.black : Color.white;
 		bulletsText.text = string.Format ("{0} / {1}", remainingBullets, maxBullets);
+	}
+
+	public void UpdateHUD (float health)
+	{
+		healthText.text = health.ToString ();
 	}
 
 	public void CheckDistance (bool correct)

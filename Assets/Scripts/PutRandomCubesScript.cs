@@ -6,14 +6,15 @@ public class PutRandomCubesScript : MonoBehaviour
 {
 
 	public Transform plane;
-	public GameObject cubes;
+	public GameObject prefab;
+	public string objectName;
 	public int max;
 	// Use this for initialization
 	void Start ()
 	{
 		for (int i = 0; i < max; i++) {
-			GameObject go = Instantiate (cubes, new Vector3 (Random.Range (-200.0f, 200.0f), 0.0f, Random.Range (-200.0f, 200.0f)), Quaternion.Euler (0.0f, Random.Range (0.0f, 90.0f), 0.0f));
-			go.name = "Cubes " + i;
+			GameObject go = Instantiate (prefab, new Vector3 (Random.Range (-200.0f, 200.0f), 1.0f, Random.Range (-200.0f, 200.0f)), Quaternion.Euler (0.0f, Random.Range (0.0f, 90.0f), 0.0f));
+			go.name = objectName + " " + i;
 			go.transform.parent = transform;
 		}
 	}

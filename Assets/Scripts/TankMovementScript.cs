@@ -6,7 +6,6 @@ public class TankMovementScript : MonoBehaviour
 {
 	public float speedLinear = 15.0f;
 	public float speedRotate = 1.0f;
-
 	private Rigidbody rb;
 	private List<Transform> continuousTracks;
 	private float forward, left;
@@ -16,7 +15,7 @@ public class TankMovementScript : MonoBehaviour
 	private float maxAngleTurret = 355.0f;
 
 	void Start ()
-	{
+	{		
 		rb = GetComponent<Rigidbody> () as Rigidbody;
 		turret = transform.Find ("Turret");
 		canon = transform.Find ("Turret/CanonParent/Canon");
@@ -44,13 +43,15 @@ public class TankMovementScript : MonoBehaviour
 	public void MoveForward (float v = 1.0f)
 	{
 		forward = 1.0f;
-		rb.velocity = transform.forward * speedLinear * v;
+		Vector3 tmp = transform.forward * speedLinear * v;
+		rb.velocity = new Vector3 (tmp.x, rb.velocity.y, tmp.z);
 	}
 
 	public void MoveBackward (float v = -1.0f)
 	{
 		forward = -1.0f;
-		rb.velocity = transform.forward * speedLinear * v;
+		Vector3 tmp = transform.forward * speedLinear * v;
+		rb.velocity = new Vector3 (tmp.x, rb.velocity.y, tmp.z);
 	}
 
 	public void TurnLeft (float h = -1.0f)

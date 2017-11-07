@@ -15,8 +15,9 @@ public class Magazine
 		remainingBullets = maxBullets;
 	}
 
-	public bool HasBullets {
-		get{ return remainingBullets > 0; }
+	public bool HasBullets ()
+	{
+		return remainingBullets > 0; 
 	}
 
 	public void Substract ()

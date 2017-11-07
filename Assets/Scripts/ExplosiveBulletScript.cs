@@ -35,6 +35,9 @@ public class ExplosiveBulletScript : MonoBehaviour
 						Rigidbody rb = item.GetComponent<Rigidbody> ();
 						if (rb != null)
 							rb.AddExplosionForce (bullet.explosionForce, hit.point, bullet.explosionRadius);
+						HealthManagementScript hm = item.GetComponent<HealthManagementScript> ();
+						if (hm != null)
+							hm.ApplyDamage (bullet.damage);
 					}
 					Destroy (gameObject, 0.3f);
 				}

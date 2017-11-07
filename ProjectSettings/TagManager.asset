@@ -8,6 +8,8 @@ TagManager:
   - Wheel
   - Cubes
   - Enemy
+  - Resources
+  - Health
   layers:
   - Default
   - TransparentFX

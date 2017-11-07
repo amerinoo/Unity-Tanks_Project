@@ -5,40 +5,40 @@ using UnityEngine.UI;
 
 public class ShootScript : MonoBehaviour
 {
-	public Magazine[] magazines;
+	public AmmoController ac;
 	public GameObject shootExplosionPrefab;
 
-	private int selectedMagazine;
+	private HudControllerScript hcs;
 	private Transform manWithButton;
 	private Transform canon;
 	private Transform bulletSpawn;
-	private HudControllerScript hcs;
+	private float TTL = 1.0f;
+	private float time;
 
 	// Use this for initialization
 	void Start ()
 	{
-		selectedMagazine = 0;
-		foreach (Magazine magazine in magazines)
-			magazine.setDefaults ();
+		time = 0.0f;
+		hcs = GetComponent<HudControllerScript> ();
 		manWithButton = transform.Find ("Turret/ManWithButton");
 		canon = transform.Find ("Turret/CanonParent/Canon");
 		bulletSpawn = canon.Find ("BulletSpawn");
-		hcs = GetComponent<HudControllerScript> ();
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if (hcs != null)
-			hcs.UpdateHUD (magazines [selectedMagazine].bullet.color, magazines [selectedMagazine].remainingBullets, magazines [selectedMagazine].maxBullets);
+		time += Time.deltaTime;
 	}
 
 	public void Fire ()
 	{
-		if (magazines [selectedMagazine].HasBullets) {
+		if (ac.HasBullets () && time > TTL) {
+			time = 0.0f;
 			AnimateMan ();
 			AnimateCanon ();
-			magazines [selectedMagazine].Substract ();
+			ac.Substract ();
 			InstantiateBullet ();
 			ShootExplosionEffect ();			  
 		}
@@ -57,7 +57,7 @@ public class ShootScript : MonoBehaviour
 
 	void InstantiateBullet ()
 	{
-		Bullet bullet = magazines [selectedMagazine].bullet;
+		Bullet bullet = ac.Bullet;
 		GameObject bulletGO = Instantiate (bullet.bulletPrefab, bulletSpawn.position, bulletSpawn.rotation) as GameObject;
 		bulletGO.GetComponent<ExplosiveBulletScript> ().init (bullet);
 		bulletGO.GetComponent<Transform> ().localScale *= bullet.scalarFactor;
@@ -71,18 +71,15 @@ public class ShootScript : MonoBehaviour
 		Destroy (Instantiate (shootExplosionPrefab, bulletSpawn.position, bulletSpawn.rotation), 1.0f);
 	}
 
-	public void NextMagazine ()
-	{
-		selectedMagazine = (selectedMagazine + 1) % magazines.Length;
-	}
+
 
 	public void CheckDistance ()
 	{
-		if (magazines [selectedMagazine].remainingBullets > 0) {
+		if (ac.HasBullets ()) {
 			Ray ray = new Ray (canon.position, canon.forward);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-				float d = magazines [selectedMagazine].bullet.Distance - hit.distance;
+				float d = ac.Bullet.Distance - hit.distance;
 				hcs.CheckDistance (hit.transform.CompareTag ("Cubes") && Mathf.Sign (d) > 0.0f);
 			}
 		}
