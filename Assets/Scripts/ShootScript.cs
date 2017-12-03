@@ -77,15 +77,24 @@ public class ShootScript : MonoBehaviour
 
 
 
-	public void CheckDistance ()
+	public bool CheckDistance ()
 	{
 		if (ac.HasBullets ()) {
 			Ray ray = new Ray (canon.position, canon.forward);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
 				float d = ac.Bullet.Distance - hit.distance;
-				hcs.CheckDistance (hit.transform.CompareTag ("Cubes") && Mathf.Sign (d) > 0.0f);
+				bool check = hit.transform.CompareTag ("Cubes") && Mathf.Sign (d) > 0.0f;
+				hcs.CheckDistance (check);
+				return check;
 			}
 		}
+		return false;
+	}
+
+	public void NextMagazine ()
+	{
+		time = 0.0f;
+		ac.NextMagazine ();
 	}
 }

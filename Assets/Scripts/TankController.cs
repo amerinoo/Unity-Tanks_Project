@@ -8,7 +8,8 @@ public class TankController : MonoBehaviour
 	private IMove controller;
 	private TankMovementScript tms;
 	private ShootScript ss;
-	private AmmoController ac;
+
+	GameControllerScript gc;
 
 	void Start ()
 	{
@@ -19,15 +20,19 @@ public class TankController : MonoBehaviour
 		else
 			controller = gameObject.AddComponent<EnemyControllerScript> ();
 
+		gc = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameControllerScript> ();
+
 		tms = GetComponent<TankMovementScript> ();
 		ss = GetComponent<ShootScript> ();
-		ac = GetComponent<AmmoController> ();
 		
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		if (gc.pause) {
+			return;
+		}
 		float v, vt;
 		float h, ht;
 		v = controller.GetVertical ();
@@ -58,13 +63,13 @@ public class TankController : MonoBehaviour
 		if (controller.Fire ())
 			ss.Fire ();
 
-		if (Input.GetButtonDown ("Fire2"))
-			ac.NextMagazine ();
+		if (controller.NextMagazine ())
+			ss.NextMagazine ();
 
-		if (Input.GetButtonDown ("Fire3"))
+		if (controller.HideBody ())
 			tms.HideBody ();
 
-		if (Input.GetButtonDown ("Fire5"))
+		if (controller.CheckDistance ())
 			ss.CheckDistance ();
 	}
 }

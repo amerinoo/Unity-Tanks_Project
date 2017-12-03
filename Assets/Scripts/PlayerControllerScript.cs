@@ -37,4 +37,19 @@ public class PlayerControllerScript : IMove
 	{
 		return Input.GetButtonDown ("Fire1");
 	}
+
+	public override bool NextMagazine ()
+	{
+		return Input.GetButtonDown ("Fire2");
+	}
+
+	public override bool HideBody ()
+	{
+		return Input.GetButtonDown ("Fire3");
+	}
+
+	public override bool CheckDistance ()
+	{
+		return Input.GetButtonDown ("Fire5");
+	}
 }

@@ -21,4 +21,10 @@ public abstract class IMove : MonoBehaviour
 	public abstract float  GetHorizontalTurn ();
 
 	public abstract bool  Fire ();
+
+	public abstract bool NextMagazine ();
+
+	public abstract bool HideBody ();
+
+	public abstract bool CheckDistance ();
 }
