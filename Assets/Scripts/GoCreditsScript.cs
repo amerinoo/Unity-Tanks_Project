@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class StartLevelScript : MonoBehaviour
+public class GoCreditsScript : MonoBehaviour
 {
-	public string level;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -18,10 +17,8 @@ public class StartLevelScript : MonoBehaviour
 		
 	}
 
-	public void StartLevel ()
+	public void GoCredits ()
 	{
-		StaticData.scenario = level;
-		SceneManager.LoadScene (StaticData.GameScreen);
+		UnityEngine.SceneManagement.SceneManager.LoadScene (StaticData.CreditsScreen);
 	}
-	
 }
