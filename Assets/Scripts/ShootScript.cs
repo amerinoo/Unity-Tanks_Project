@@ -12,7 +12,6 @@ public class ShootScript : MonoBehaviour
 	private Transform manWithButton;
 	private Transform canon;
 	private Transform bulletSpawn;
-	private float TTL = 1.0f;
 	private float time;
 
 	// Use this for initialization
@@ -34,7 +33,7 @@ public class ShootScript : MonoBehaviour
 
 	public void Fire ()
 	{
-		if (ac.HasBullets () && time > TTL) {
+		if (ac.HasBullets () && CanShoot ()) {
 			time = 0.0f;
 			AnimateMan ();
 			AnimateCanon ();
@@ -42,6 +41,11 @@ public class ShootScript : MonoBehaviour
 			InstantiateBullet ();
 			ShootExplosionEffect ();			  
 		}
+	}
+
+	public bool CanShoot ()
+	{
+		return time > ac.GetTTL ();
 	}
 
 	void AnimateMan ()

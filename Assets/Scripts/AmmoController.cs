@@ -38,6 +38,11 @@ public class AmmoController : MonoBehaviour
 		get{ return magazines [selectedMagazine].bullet; }
 	}
 
+	public float GetTTL ()
+	{
+		return magazines [selectedMagazine].ttl;
+	}
+
 	public bool HasBullets ()
 	{
 		return magazines [selectedMagazine].HasBullets (); 
