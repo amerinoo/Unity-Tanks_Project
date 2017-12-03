@@ -39,7 +39,7 @@ public class ExplosiveBulletScript : MonoBehaviour
 						if (hm != null)
 							hm.ApplyDamage (bullet.damage);
 					}
-					Destroy (gameObject, 0.3f);
+					Destroy (gameObject);
 				}
 			}
 		}

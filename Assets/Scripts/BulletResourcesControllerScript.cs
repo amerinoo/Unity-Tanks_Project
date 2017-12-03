@@ -24,6 +24,7 @@ public class BulletResourcesControllerScript : MonoBehaviour
 		Magazine[] magazines = tank.GetComponent<AmmoController> ().magazines;
 		Bullet bullet = magazines [Random.Range (0, magazines.Length)].bullet;
 		kind = bullet.kind;
-		GetComponent<MeshRenderer> ().materials [0].color = bullet.color;
+		transform.Find ("Ammo").GetComponent<MeshRenderer> ().materials [0].color = bullet.color;
+		transform.Find ("Minimap object").GetComponent<MeshRenderer> ().materials [0].color = bullet.color;
 	}
 }
