@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4916750332142368}
   - component: {fileID: 54567027550218766}
+  - component: {fileID: 136204552861864578}
   - component: {fileID: 65684017926728584}
   - component: {fileID: 114861628974326288}
   - component: {fileID: 114069500396106534}
@@ -28,8 +29,9 @@ GameObject:
   - component: {fileID: 114336786305930488}
   - component: {fileID: 114378724674407738}
   - component: {fileID: 114544774202879652}
+  - component: {fileID: 114555484453543384}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: Simple
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1134,7 +1136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1990100195252518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -1.61, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4916750332142368}
@@ -1627,8 +1629,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1020291975995606}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.72, z: -3.6}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 2.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4193327197788542}
@@ -2989,7 +2991,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!65 &65684017926728584
 BoxCollider:
@@ -2999,10 +3001,10 @@ BoxCollider:
   m_GameObject: {fileID: 1020291975995606}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 4.35, y: 2.7, z: 5.01}
-  m_Center: {x: 0, y: -0.27, z: 0.47}
+  m_Size: {x: 4.35, y: 1.63, z: 4.28}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!81 &81435443999508370
 AudioListener:
   m_ObjectHideFlags: 1
@@ -3199,6 +3201,7 @@ MonoBehaviour:
       scalarFactor: 1
       kind: 0
     maxBullets: 100
+    ttl: 0.5
     remainingBullets: 0
   - bullet:
       name: Bullet2
@@ -3217,6 +3220,7 @@ MonoBehaviour:
       scalarFactor: 1.2
       kind: 1
     maxBullets: 50
+    ttl: 1
     remainingBullets: 0
   - bullet:
       name: Bullet3
@@ -3235,6 +3239,7 @@ MonoBehaviour:
       scalarFactor: 1.6
       kind: 2
     maxBullets: 20
+    ttl: 1.5
     remainingBullets: 0
 --- !u!114 &114359322027932986
 MonoBehaviour:
@@ -3355,6 +3360,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
+--- !u!114 &114555484453543384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1020291975995606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c110e08a1dae7846bf51090932eb3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVerticalInclination: 30
 --- !u!114 &114615546054638336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3532,7 +3549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ff9d0cd4ffe724381cb6f925559a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 0
+  isPlayer: 1
 --- !u!114 &114864724770651692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3643,6 +3660,19 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1231752683316692}
   m_Enabled: 1
+--- !u!136 &136204552861864578
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1020291975995606}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.89
+  m_Height: 4.17
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.59, z: 0}
 --- !u!222 &222016291177959066
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3793,7 +3823,7 @@ RectTransform:
   m_GameObject: {fileID: 1417871571158000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0423111, y: 1.0423111, z: 1.0423111}
   m_Children:
   - {fileID: 224269602913667018}
   - {fileID: 224953890106074398}
