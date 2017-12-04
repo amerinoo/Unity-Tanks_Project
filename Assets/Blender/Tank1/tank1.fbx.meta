@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: 62a11878787ea1d4d93982ca6fb590a6
+timeCreated: 1512123289
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Canon
+    100004: Cone
+    100006: Cube.000
+    100008: Cube.001
+    100010: Cube.002
+    100012: Cube.003
+    100014: Cube.004
+    100016: Cube.005
+    100018: Cube.016
+    100020: Cylinder
+    100022: Cylinder.001
+    100024: Cylinder.002
+    100026: //RootNode
+    100028: Torus
+    400000: Camera
+    400002: Canon
+    400004: Cone
+    400006: Cube.000
+    400008: Cube.001
+    400010: Cube.002
+    400012: Cube.003
+    400014: Cube.004
+    400016: Cube.005
+    400018: Cube.016
+    400020: Cylinder
+    400022: Cylinder.001
+    400024: Cylinder.002
+    400026: //RootNode
+    400028: Torus
+    2000000: Camera
+    2300000: Canon
+    2300002: Cone
+    2300004: Cube.000
+    2300006: Cube.001
+    2300008: Cube.002
+    2300010: Cube.003
+    2300012: Cube.004
+    2300014: Cube.005
+    2300016: Cube.016
+    2300018: Cylinder
+    2300020: Cylinder.001
+    2300022: Cylinder.002
+    2300024: Torus
+    3300000: Canon
+    3300002: Cone
+    3300004: Cube.000
+    3300006: Cube.001
+    3300008: Cube.002
+    3300010: Cube.003
+    3300012: Cube.004
+    3300014: Cube.005
+    3300016: Cube.016
+    3300018: Cylinder
+    3300020: Cylinder.001
+    3300022: Cylinder.002
+    3300024: Torus
+    4300000: Cone
+    4300002: Torus
+    4300004: Cylinder.002
+    4300006: Cube.005
+    4300008: Cylinder
+    4300010: Cube.016
+    4300012: Cube.004
+    4300014: Cube.002
+    4300016: Cube.001
+    4300018: Canon
+    4300020: Cube.000
+    4300022: Cylinder.001
+    4300024: Cube.003
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base
+    second: {fileID: 2100000, guid: 8736764e1d3f878418573feb93491345, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: d4410f93ba30c3947942d4869942e4b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pinchos
+    second: {fileID: 2100000, guid: 837ef5524e7b9eb439375a99d65a578d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Top
+    second: {fileID: 2100000, guid: ef6420125c4fd6d499d25f6a8e09a4c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Turret
+    second: {fileID: 2100000, guid: 3215f06fcc349dd4080e2804668d103c, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
