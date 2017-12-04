@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1002616818275312}
+  m_IsPrefabParent: 1
+--- !u!1 &1002616818275312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4168227194412556}
+  - component: {fileID: 54786382763622184}
+  - component: {fileID: 136007695143920538}
+  - component: {fileID: 114349575670076818}
+  - component: {fileID: 114376738875485110}
+  - component: {fileID: 114908772157510316}
+  - component: {fileID: 114594383715236110}
+  - component: {fileID: 114861531172515610}
+  - component: {fileID: 114626957359281396}
+  - component: {fileID: 114144586424288016}
+  - component: {fileID: 114139141301523308}
+  m_Layer: 0
+  m_Name: Tank controller
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4168227194412556
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54786382763622184
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 64
+  m_CollisionDetection: 0
+--- !u!114 &114139141301523308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c110e08a1dae7846bf51090932eb3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVerticalInclination: 30
+--- !u!114 &114144586424288016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94e73c1ec776e4468c8c9ee22f9881d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1000
+--- !u!114 &114349575670076818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ff9d0cd4ffe724381cb6f925559a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 1
+--- !u!114 &114376738875485110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cb095aa82397c4c9567484ba9046c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedLinear: 15
+  speedRotate: 1
+--- !u!114 &114594383715236110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36920533c7dd9842960260d3fdd5078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletsCounter: {fileID: 0}
+  healthCounter: {fileID: 0}
+  cross: {fileID: 0}
+--- !u!114 &114626957359281396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd8f5cc5a8e75145808b92c4910e727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114861531172515610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47011ebb580bb8b4f8f45ab472c79d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magazines:
+  - bullet:
+      name: Bullet1
+      time: 3
+      speed: 60
+      damage: 50
+      color: {r: 0.9251954, g: 0.99264705, b: 0.5036224, a: 1}
+      bulletPrefab: {fileID: 1151352600701222, guid: 224d10f0385cfa248a6fe36c6f70d9c9,
+        type: 2}
+      smokePrefab: {fileID: 1100274298012324, guid: aadaf10db55fcd6408f01d6c467af2e1,
+        type: 2}
+      explosionPrefab: {fileID: 1098104444255972, guid: a62563d5be6c0b34aac5774cf343b063,
+        type: 2}
+      explosionRadius: 5
+      explosionForce: 500
+      scalarFactor: 1
+      kind: 0
+    maxBullets: 100
+    ttl: 0.5
+    remainingBullets: 0
+  - bullet:
+      name: Bullet2
+      time: 2
+      speed: 60
+      damage: 100
+      color: {r: 0.2578855, g: 0.1415441, b: 0.875, a: 1}
+      bulletPrefab: {fileID: 1151352600701222, guid: 224d10f0385cfa248a6fe36c6f70d9c9,
+        type: 2}
+      smokePrefab: {fileID: 1100274298012324, guid: aadaf10db55fcd6408f01d6c467af2e1,
+        type: 2}
+      explosionPrefab: {fileID: 1098104444255972, guid: a62563d5be6c0b34aac5774cf343b063,
+        type: 2}
+      explosionRadius: 5
+      explosionForce: 800
+      scalarFactor: 1.2
+      kind: 1
+    maxBullets: 50
+    ttl: 1
+    remainingBullets: 0
+  - bullet:
+      name: Bullet3
+      time: 1
+      speed: 60
+      damage: 200
+      color: {r: 0.9485294, g: 0.23713236, b: 0.7228446, a: 1}
+      bulletPrefab: {fileID: 1151352600701222, guid: 224d10f0385cfa248a6fe36c6f70d9c9,
+        type: 2}
+      smokePrefab: {fileID: 1100274298012324, guid: aadaf10db55fcd6408f01d6c467af2e1,
+        type: 2}
+      explosionPrefab: {fileID: 1098104444255972, guid: a62563d5be6c0b34aac5774cf343b063,
+        type: 2}
+      explosionRadius: 5
+      explosionForce: 1500
+      scalarFactor: 1.6
+      kind: 2
+    maxBullets: 20
+    ttl: 1.5
+    remainingBullets: 0
+--- !u!114 &114908772157510316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b5d474b5cf24a4384872a9e0e007c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ac: {fileID: 114861531172515610}
+  shootExplosionPrefab: {fileID: 1255173929985598, guid: 83b64e588a8ff10429d82699db53f582,
+    type: 2}
+--- !u!136 &136007695143920538
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002616818275312}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.1
+  m_Height: 5.52
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.25, z: 0.18}

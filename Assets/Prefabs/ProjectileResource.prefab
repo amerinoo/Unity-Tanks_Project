@@ -36,8 +36,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4976848369021734}
-  - component: {fileID: 114392790041494016}
   - component: {fileID: 114052639419601428}
+  - component: {fileID: 114392790041494016}
   - component: {fileID: 65253667413306392}
   m_Layer: 0
   m_Name: ProjectileResource
@@ -221,5 +221,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93d683f5d91e7d4d8a714774f64e2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tank: {fileID: 1020291975995606, guid: 9d4765f21eb46894990a46e044311bd0, type: 2}
+  tank: {fileID: 1002616818275312, guid: 4f2747d55e5f13f49b5ef57764b4cb73, type: 2}
   kind: 0
