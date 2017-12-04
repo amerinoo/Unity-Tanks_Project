@@ -68,28 +68,33 @@ public class TankMovementScript : MonoBehaviour
 
 	public void TurnTurretLeft (float ht = -1.0f)
 	{
-		turret.Rotate (turret.up, speedRotate * ht);
+		turret.Rotate (speedRotate * ht, 0, 0);
 	}
 
 	public void TurnTurretRight (float ht = 1.0f)
 	{
-		turret.Rotate (turret.up, speedRotate * ht);
+		turret.Rotate (speedRotate * ht, 0, 0);
 	}
 
 	public void TurnTurretUp (float vt = 1.0f)
 	{
-		if (canon.eulerAngles.x < minAngleTurret + 1.0f)
-			canon.Rotate (speedRotate * vt, 0.0f, 0.0f);
-		else if (canon.eulerAngles.x > maxAngleTurret)
-			canon.Rotate (speedRotate * vt, 0.0f, 0.0f);
+		if (canon.eulerAngles.x < minAngleTurret)
+			TurretRotate (vt);
+		else if (canon.eulerAngles.x > maxAngleTurret - 1.0f)
+			TurretRotate (vt);
 	}
 
 	public void TurnTurretDown (float vt = -1.0f)
 	{
-		if (canon.eulerAngles.x < minAngleTurret)
-			canon.Rotate (speedRotate * vt, 0.0f, 0.0f);
-		else if (canon.eulerAngles.x > maxAngleTurret - 1.0f)
-			canon.Rotate (speedRotate * vt, 0.0f, 0.0f);
+		if (canon.eulerAngles.x < minAngleTurret + 1.0f)
+			TurretRotate (vt);
+		else if (canon.eulerAngles.x > maxAngleTurret)
+			TurretRotate (vt);
+	}
+
+	private void TurretRotate (float vt)
+	{
+		canon.Rotate (0.0f, speedRotate * vt, 0.0f);
 	}
 
 	public void HideBody ()

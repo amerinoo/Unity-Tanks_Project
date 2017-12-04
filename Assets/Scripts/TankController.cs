@@ -13,7 +13,8 @@ public class TankController : MonoBehaviour
 
 	void Start ()
 	{
-		transform.Find ("Turret/Camera").gameObject.SetActive (isPlayer);
+		transform.Find ("Camera").gameObject.SetActive (isPlayer);
+		transform.Find ("Minimap camera").gameObject.SetActive (isPlayer);
 		transform.Find ("HUD").gameObject.SetActive (isPlayer);
 		if (isPlayer)
 			controller = gameObject.AddComponent<PlayerControllerScript> ();
