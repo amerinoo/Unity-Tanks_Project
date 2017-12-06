@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 62a11878787ea1d4d93982ca6fb590a6
-timeCreated: 1512123289
+timeCreated: 1512510010
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Camera
+    100000: Base
     100002: Canon
     100004: Cone
     100006: Cube.000
@@ -15,12 +15,12 @@ ModelImporter:
     100014: Cube.004
     100016: Cube.005
     100018: Cube.016
-    100020: Cylinder
-    100022: Cylinder.001
-    100024: Cylinder.002
-    100026: //RootNode
-    100028: Torus
-    400000: Camera
+    100020: Cylinder.001
+    100022: Cylinder.002
+    100024: //RootNode
+    100026: Torus
+    100028: Turret
+    400000: Base
     400002: Canon
     400004: Cone
     400006: Cube.000
@@ -30,12 +30,11 @@ ModelImporter:
     400014: Cube.004
     400016: Cube.005
     400018: Cube.016
-    400020: Cylinder
-    400022: Cylinder.001
-    400024: Cylinder.002
-    400026: //RootNode
-    400028: Torus
-    2000000: Camera
+    400020: Cylinder.001
+    400022: Cylinder.002
+    400024: //RootNode
+    400026: Torus
+    400028: Turret
     2300000: Canon
     2300002: Cone
     2300004: Cube.000
@@ -45,10 +44,10 @@ ModelImporter:
     2300012: Cube.004
     2300014: Cube.005
     2300016: Cube.016
-    2300018: Cylinder
-    2300020: Cylinder.001
-    2300022: Cylinder.002
-    2300024: Torus
+    2300018: Cylinder.001
+    2300020: Cylinder.002
+    2300022: Torus
+    2300024: Turret
     3300000: Canon
     3300002: Cone
     3300004: Cube.000
@@ -58,23 +57,23 @@ ModelImporter:
     3300012: Cube.004
     3300014: Cube.005
     3300016: Cube.016
-    3300018: Cylinder
-    3300020: Cylinder.001
-    3300022: Cylinder.002
-    3300024: Torus
-    4300000: Cone
-    4300002: Torus
-    4300004: Cylinder.002
-    4300006: Cube.005
-    4300008: Cylinder
-    4300010: Cube.016
-    4300012: Cube.004
-    4300014: Cube.002
-    4300016: Cube.001
-    4300018: Canon
+    3300018: Cylinder.001
+    3300020: Cylinder.002
+    3300022: Torus
+    3300024: Turret
+    4300000: Cube.001
+    4300002: Cube.003
+    4300004: Cube.005
+    4300006: Cube.004
+    4300008: Cone
+    4300010: Torus
+    4300012: Cylinder.002
+    4300014: Cylinder.001
+    4300016: Cube.016
+    4300018: Cube.002
     4300020: Cube.000
-    4300022: Cylinder.001
-    4300024: Cube.003
+    4300022: Turret
+    4300024: Canon
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -94,13 +93,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Top
-    second: {fileID: 2100000, guid: ef6420125c4fd6d499d25f6a8e09a4c8, type: 2}
+      name: TankTurret
+    second: {fileID: 2100000, guid: 951e82046ce3b6e4683a7180efa0747e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Turret
-    second: {fileID: 2100000, guid: 3215f06fcc349dd4080e2804668d103c, type: 2}
+      name: Top
+    second: {fileID: 2100000, guid: ef6420125c4fd6d499d25f6a8e09a4c8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
