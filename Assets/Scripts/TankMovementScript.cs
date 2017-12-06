@@ -14,6 +14,8 @@ public class TankMovementScript : MonoBehaviour
 	private float minAngleTurret = 0.0f;
 	private float maxAngleTurret = 355.0f;
 
+	public bool isGrounded;
+
 	void Start ()
 	{		
 		rb = GetComponent<Rigidbody> () as Rigidbody;
@@ -42,36 +44,56 @@ public class TankMovementScript : MonoBehaviour
 
 	public void MoveForward (float v = 1.0f)
 	{
-		forward = 1.0f;
-		Vector3 tmp = transform.forward * speedLinear * v;
-		rb.velocity = new Vector3 (tmp.x, rb.velocity.y, tmp.z);
+		Move (v);
 	}
 
 	public void MoveBackward (float v = -1.0f)
 	{
-		forward = -1.0f;
-		Vector3 tmp = transform.forward * speedLinear * v;
-		rb.velocity = new Vector3 (tmp.x, rb.velocity.y, tmp.z);
+		Move (v);
+	}
+
+	private void Move (float v)
+	{
+		if (IsGrounded ()) {
+			forward = Mathf.Sign (v);
+			Vector3 tmp = transform.forward * speedLinear * v;
+			rb.velocity = new Vector3 (tmp.x, rb.velocity.y, tmp.z);
+		}
+	}
+
+	private bool IsGrounded ()
+	{
+		isGrounded = Physics.Raycast (transform.position, -transform.up, GetComponent<CapsuleCollider> ().bounds.extents.y * 2);
+		return isGrounded;
 	}
 
 	public void TurnLeft (float h = -1.0f)
 	{
-		left = -1.0f;
-		rb.MoveRotation (Quaternion.Euler (0.0f, speedRotate * h, 0.0f) * rb.rotation);
+		Turn (h);
 	}
 
 	public void TurnRight (float h = 1.0f)
 	{
-		left = 1.0f;
+		Turn (h);
+	}
+
+	private void Turn (float h)
+	{
+		left = Mathf.Sign (h);
 		rb.MoveRotation (Quaternion.Euler (0.0f, speedRotate * h, 0.0f) * rb.rotation);
 	}
 
 	public void TurnTurretLeft (float ht = -1.0f)
 	{
-		turret.Rotate (speedRotate * ht, 0, 0);
+		TurnTurret (ht);
 	}
 
 	public void TurnTurretRight (float ht = 1.0f)
+	{
+		TurnTurret (ht);
+	}
+
+	private void TurnTurret (float ht)
 	{
 		turret.Rotate (speedRotate * ht, 0, 0);
 	}
