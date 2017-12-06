@@ -7,9 +7,9 @@ TagManager:
   - ContinuousTrack
   - Wheel
   - Cubes
-  - Enemy
   - Resources
   - Health
+  - Bot
   layers:
   - Default
   - TransparentFX

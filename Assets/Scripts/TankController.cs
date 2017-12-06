@@ -5,6 +5,7 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
 	public bool isPlayer;
+	public int index;
 	private IMove controller;
 	private TankMovementScript tms;
 	private ShootScript ss;
@@ -13,9 +14,17 @@ public class TankController : MonoBehaviour
 
 	void Start ()
 	{
-		transform.Find ("Camera").gameObject.SetActive (isPlayer);
+		transform.Find ("Turret/Camera").gameObject.SetActive (isPlayer);
 		transform.Find ("Minimap camera").gameObject.SetActive (isPlayer);
 		transform.Find ("HUD").gameObject.SetActive (isPlayer);
+		transform.Find ("Minimap object/Number").GetComponent<TextMesh> ().text = (index + 1).ToString ();
+		transform.Find ("Minimap object").GetComponent<MeshRenderer> ().material.color = (isPlayer) ? Color.green : Color.red;
+		Color c = (isPlayer) ? new Color32 (44, 55, 200, 1) : new Color32 (200, 55, 44, 1);
+		foreach (Transform o in transform.Find ("Base/Colored")) {
+			o.GetComponent<MeshRenderer> ().material.color = c;
+		}
+		transform.Find ("Turret").GetComponent<MeshRenderer> ().material.color = c;
+
 		if (isPlayer)
 			controller = gameObject.AddComponent<PlayerControllerScript> ();
 		else
@@ -31,7 +40,7 @@ public class TankController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (gc.pause) {
+		if (gc != null && gc.pause) {
 			return;
 		}
 		float v, vt;

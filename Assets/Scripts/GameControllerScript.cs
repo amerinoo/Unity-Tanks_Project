@@ -6,17 +6,22 @@ using UnityEngine.SceneManagement;
 public class GameControllerScript : MonoBehaviour
 {
 	public bool pause;
-	public GameObject player;
-	public bool playerDead;
+	public List<GameObject> players;
+	public GameObject scenario;
+	public int playersCount;
+	public int botsCount;
 
 	private UIControllerScript uics;
 
 	// Use this for initialization
 	void Start ()
 	{
-		player = Instantiate (Resources.Load ("Tanks/" + StaticData.tank))as GameObject;
-		GameObject go = Instantiate (Resources.Load ("Scenarios/" + StaticData.scenario))as GameObject;
-		GameObject.FindGameObjectWithTag ("Player").transform.position = go.transform.Find ("Skeleton/InitialPoint").transform.position;
+		
+		scenario = Instantiate (Resources.Load ("Scenarios/" + StaticData.scenario))as GameObject;
+		putTanks ("Players", "Player", true);
+		playersCount = players.Count;
+		putTanks ("Bots", "Bot", false);
+		botsCount = players.Count;
 		uics = GetComponent<UIControllerScript> ();
 	}
 	
@@ -30,20 +35,57 @@ public class GameControllerScript : MonoBehaviour
 		if (pause) {
 			
 		} else {
-			if (PlayerDead ())
+			if (!PlayersAlive ()) {
+				Debug.Log ("Bots win");
 				EndGame ();
+			} else if (!BotsAlive ()) {
+				Debug.Log ("Players win");
+				EndGame ();
+			}
 			
 		}
 	}
 
-	bool PlayerDead ()
+	private void putTanks (string skeletonTag, string tag, bool isPlayer)
 	{
-		return playerDead;
+		GameObject go;
+		int initialCount = players.Count;
+		foreach (Transform tra in scenario.transform.Find ("Skeleton/" + skeletonTag)) {
+			go = Instantiate (Resources.Load ("Tanks/" + StaticData.tank))as GameObject;
+			go.transform.position = tra.position;
+			go.transform.Find ("Tank controller").transform.tag = tag;
+			go.transform.Find ("Tank controller").GetComponent<TankController> ().isPlayer = isPlayer;
+			go.transform.Find ("Tank controller").GetComponent<TankController> ().index = players.Count - initialCount;
+			go.transform.Find ("Tank controller").GetComponent<HealthManagementScript> ().index = players.Count;
+			if (players.Count != 0) {
+				go.transform.Find ("Tank controller/Turret/Camera").GetComponent<AudioListener> ().enabled = false;
+			}
+			go.name = tag + " " + (players.Count - initialCount + 1).ToString ();
+			go.transform.SetParent (transform.Find (skeletonTag));
+			players.Add (go);
+		}
+	}
+
+	bool PlayersAlive ()
+	{
+		for (int i = 0; i < playersCount; i++)
+			if (players [i].activeSelf)
+				return true;
+		return false || playersCount == 0;
+	}
+
+	bool BotsAlive ()
+	{
+		for (int i = playersCount; i < players.Count; i++)
+			if (players [i].activeSelf)
+				return true;
+		return false || botsCount == 0;
 	}
 
 	public void PlayerDead (int playerNum)
 	{
-		playerDead = true;
+		Debug.Log (playerNum);
+		players [playerNum].SetActive (false);
 	}
 
 	public void Pause ()
@@ -62,7 +104,7 @@ public class GameControllerScript : MonoBehaviour
 
 	public void EndGame ()
 	{
-		Pause ();
+		GoMenu ();
 	}
 
 	public void GoMenu ()
@@ -70,7 +112,6 @@ public class GameControllerScript : MonoBehaviour
 		Time.timeScale = 1.0f;
 		SceneManager.LoadScene (StaticData.MainScreen);
 	}
-
 
 	void OnApplicationPause (bool pauseStatus)
 	{
