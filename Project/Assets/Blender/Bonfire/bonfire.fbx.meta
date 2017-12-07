@@ -1,0 +1,260 @@
+fileFormatVersion: 2
+guid: f5cf702a554b84b4e9a2e48b5b630b76
+timeCreated: 1512602737
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Plane
+    100004: Plane.001
+    100006: Plane.002
+    100008: Plane.003
+    100010: Plane.004
+    100012: Plane.005
+    100014: Plane.006
+    100016: Plane.007
+    100018: Plane.008
+    100020: Plane.009
+    100022: Plane.010
+    100024: Plane.011
+    100026: Plane.012
+    100028: Plane.013
+    100030: Plane.014
+    100032: Plane.015
+    100034: Plane.016
+    100036: Plane.017
+    100038: Plane.018
+    100040: Plane.019
+    100042: Plane.021
+    100044: Plane.022
+    100046: Plane.023
+    100048: Plane.024
+    100050: Plane.025
+    100052: Plane.026
+    100054: Plane.027
+    100056: Plane.028
+    100058: Plane.029
+    100060: Plane.030
+    100062: Plane.031
+    400000: //RootNode
+    400002: Plane
+    400004: Plane.001
+    400006: Plane.002
+    400008: Plane.003
+    400010: Plane.004
+    400012: Plane.005
+    400014: Plane.006
+    400016: Plane.007
+    400018: Plane.008
+    400020: Plane.009
+    400022: Plane.010
+    400024: Plane.011
+    400026: Plane.012
+    400028: Plane.013
+    400030: Plane.014
+    400032: Plane.015
+    400034: Plane.016
+    400036: Plane.017
+    400038: Plane.018
+    400040: Plane.019
+    400042: Plane.021
+    400044: Plane.022
+    400046: Plane.023
+    400048: Plane.024
+    400050: Plane.025
+    400052: Plane.026
+    400054: Plane.027
+    400056: Plane.028
+    400058: Plane.029
+    400060: Plane.030
+    400062: Plane.031
+    2300000: //RootNode
+    2300002: Plane
+    2300004: Plane.001
+    2300006: Plane.002
+    2300008: Plane.003
+    2300010: Plane.004
+    2300012: Plane.005
+    2300014: Plane.006
+    2300016: Plane.007
+    2300018: Plane.008
+    2300020: Plane.009
+    2300022: Plane.010
+    2300024: Plane.011
+    2300026: Plane.012
+    2300028: Plane.013
+    2300030: Plane.014
+    2300032: Plane.015
+    2300034: Plane.016
+    2300036: Plane.017
+    2300038: Plane.018
+    2300040: Plane.019
+    2300042: Plane.021
+    2300044: Plane.022
+    2300046: Plane.023
+    2300048: Plane.024
+    2300050: Plane.025
+    2300052: Plane.026
+    2300054: Plane.027
+    2300056: Plane.028
+    2300058: Plane.029
+    2300060: Plane.030
+    2300062: Plane.031
+    3300000: //RootNode
+    3300002: Plane
+    3300004: Plane.001
+    3300006: Plane.002
+    3300008: Plane.003
+    3300010: Plane.004
+    3300012: Plane.005
+    3300014: Plane.006
+    3300016: Plane.007
+    3300018: Plane.008
+    3300020: Plane.009
+    3300022: Plane.010
+    3300024: Plane.011
+    3300026: Plane.012
+    3300028: Plane.013
+    3300030: Plane.014
+    3300032: Plane.015
+    3300034: Plane.016
+    3300036: Plane.017
+    3300038: Plane.018
+    3300040: Plane.019
+    3300042: Plane.021
+    3300044: Plane.022
+    3300046: Plane.023
+    3300048: Plane.024
+    3300050: Plane.025
+    3300052: Plane.026
+    3300054: Plane.027
+    3300056: Plane.028
+    3300058: Plane.029
+    3300060: Plane.030
+    3300062: Plane.031
+    4300000: Plane.020
+    4300002: Plane.031
+    4300004: Plane.030
+    4300006: Plane.029
+    4300008: Plane.028
+    4300010: Plane.027
+    4300012: Plane.026
+    4300014: Plane.025
+    4300016: Plane.024
+    4300018: Plane.023
+    4300020: Plane.022
+    4300022: Plane.021
+    4300024: Plane.019
+    4300026: Plane.018
+    4300028: Plane.017
+    4300030: Plane.016
+    4300032: Plane.015
+    4300034: Plane.014
+    4300036: Plane.013
+    4300038: Plane.012
+    4300040: Plane.011
+    4300042: Plane.010
+    4300044: Plane.009
+    4300046: Plane.008
+    4300048: Plane.007
+    4300050: Plane.006
+    4300052: Plane.005
+    4300054: Plane.004
+    4300056: Plane.003
+    4300058: Plane.002
+    4300060: Plane.001
+    4300062: Plane
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Charcoal
+    second: {fileID: 2100000, guid: b8da717aef306574cb274f1b2c030671, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone
+    second: {fileID: 2100000, guid: 99f65438d74cede4c9b7d1abe2c45009, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 5fff5cabb6aac16479f813287bb22bdd, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
