@@ -61,6 +61,9 @@ public class GameControllerScript : MonoBehaviour
 				go.transform.Find ("Tank controller/Turret/Camera").GetComponent<AudioListener> ().enabled = false;
 			}
 			go.name = tag + " " + (players.Count - initialCount + 1).ToString ();
+			foreach (Transform text in go.transform.Find ("Tank controller/Texts")) {
+				text.GetComponent<TextMesh> ().text = go.name;
+			}
 			go.transform.SetParent (transform.Find (skeletonTag));
 			players.Add (go);
 		}

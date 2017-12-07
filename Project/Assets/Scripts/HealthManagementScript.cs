@@ -7,7 +7,8 @@ public class HealthManagementScript : MonoBehaviour
 	public float health;
 	public int index;
 	private float maxHealth;
-	public bool h, d;
+	public bool heal, damage, kill;
+	public GameObject tombstonePref;
 
 	private HudControllerScript hcs;
 	// Use this for initialization
@@ -23,13 +24,17 @@ public class HealthManagementScript : MonoBehaviour
 		if (hcs != null) {
 			hcs.UpdateHUD (health);
 		}
-		if (h) {
+		if (heal || Input.GetKeyDown (KeyCode.Z) && index == -1) {
 			IncrementHealth (100);
-			h = false;
+			heal = false;
 		}
-		if (d) {
+		if (damage || Input.GetKeyDown (KeyCode.X) && index == -1) {
 			ApplyDamage (100);
-			d = false;
+			damage = false;
+		}
+		if (kill || Input.GetKeyDown (KeyCode.C) && index == -1) {
+			ApplyDamage (health);
+			damage = false;
 		}
 
 	}
@@ -47,6 +52,13 @@ public class HealthManagementScript : MonoBehaviour
 		health -= damage;
 		if (health <= 0.0f) {
 			GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameControllerScript> ().PlayerDead (index);
+			GameObject go = Instantiate (tombstonePref);
+			go.transform.position = new Vector3 (transform.position.x, -2, transform.position.z);
+			go.transform.SetParent (transform.parent.parent);
+			go.name = "Tombstone " + transform.parent.name;
+			foreach (Transform text in go.transform.GetChild(0).Find ("Texts")) {
+				text.GetComponent<TextMesh> ().text = transform.parent.name;
+			}
 			Destroy (transform.gameObject);
 		}
 		CheckFire ();
