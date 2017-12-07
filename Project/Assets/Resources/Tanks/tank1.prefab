@@ -2003,7 +2003,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1d3e4ba0327ff6b418e7baaaa2880b88, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3614,26 +3614,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magazines:
   - bullet:
-      name: Bullet1
+      name: Inpulse
+      kind: 0
       time: 3
       speed: 60
       damage: 50
       color: {r: 0.9251954, g: 0.99264705, b: 0.5036224, a: 1}
-      bulletPrefab: {fileID: 1783700631743838, guid: 224d10f0385cfa248a6fe36c6f70d9c9,
+      bulletPrefab: {fileID: 1842072223775246, guid: 795aba7c60fefb343951febafff372c5,
         type: 2}
       smokePrefab: {fileID: 1100274298012324, guid: aadaf10db55fcd6408f01d6c467af2e1,
         type: 2}
-      explosionPrefab: {fileID: 1098104444255972, guid: a62563d5be6c0b34aac5774cf343b063,
-        type: 2}
-      explosionRadius: 5
-      explosionForce: 500
       scalarFactor: 1
-      kind: 0
+      explosionPrefab: {fileID: 0}
+      explosionRadius: 0
+      explosionForce: 0
+      inpulseForce: 50
     maxBullets: 100
     ttl: 0.5
     remainingBullets: 0
   - bullet:
-      name: Bullet2
+      name: High Explosive
+      kind: 1
       time: 2
       speed: 60
       damage: 100
@@ -3642,17 +3643,18 @@ MonoBehaviour:
         type: 2}
       smokePrefab: {fileID: 1100274298012324, guid: aadaf10db55fcd6408f01d6c467af2e1,
         type: 2}
+      scalarFactor: 1.2
       explosionPrefab: {fileID: 1098104444255972, guid: a62563d5be6c0b34aac5774cf343b063,
         type: 2}
       explosionRadius: 5
       explosionForce: 800
-      scalarFactor: 1.2
-      kind: 1
+      inpulseForce: 0
     maxBullets: 50
     ttl: 1
     remainingBullets: 0
   - bullet:
-      name: Bullet3
+      name: Armor piercing
+      kind: 2
       time: 1
       speed: 60
       damage: 200
@@ -3661,12 +3663,12 @@ MonoBehaviour:
         type: 2}
       smokePrefab: {fileID: 1100274298012324, guid: aadaf10db55fcd6408f01d6c467af2e1,
         type: 2}
+      scalarFactor: 1.6
       explosionPrefab: {fileID: 1098104444255972, guid: a62563d5be6c0b34aac5774cf343b063,
         type: 2}
       explosionRadius: 5
       explosionForce: 1500
-      scalarFactor: 1.6
-      kind: 2
+      inpulseForce: 0
     maxBullets: 20
     ttl: 1.5
     remainingBullets: 0
@@ -3783,6 +3785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedLinear: 15
   speedRotate: 1
+  isGrounded: 0
 --- !u!114 &114861808380937530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17428,7 +17431,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011082748688738}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 375, y: 211, z: -84.68}
+  m_LocalPosition: {x: 375, y: 211, z: 0}
   m_LocalScale: {x: 1.4064583, y: 1.4064583, z: 1.4064583}
   m_Children:
   - {fileID: 224569652274768616}

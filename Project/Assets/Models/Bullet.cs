@@ -7,23 +7,27 @@ public class Bullet
 {
 	public enum Kind
 	{
-		Bullet1,
-		Bullet2,
-		Bullet3
+		Inpulse,
+		High_Explosive,
+		Armor_piercing
 	}
 
-	public string name = "Bullet";
-	public float time = 3.0f;
-	public float speed = 80.0f;
+	public string name;
+	public Kind kind;
+	public float time;
+	public float speed;
 	public float damage;
 	public Color color;
 	public GameObject bulletPrefab;
 	public GameObject smokePrefab;
+	public float scalarFactor;
+
 	public GameObject explosionPrefab;
-	public float explosionRadius = 5.0f;
-	public float explosionForce = 500.0f;
-	public float scalarFactor = 1.0f;
-	public Kind kind;
+	public float explosionRadius;
+	public float explosionForce;
+
+	public float inpulseForce;
+
 
 	public float Distance {
 		get { return speed * time; }

@@ -63,7 +63,7 @@ public class ShootScript : MonoBehaviour
 	{
 		Bullet bullet = ac.Bullet;
 		GameObject bulletGO = Instantiate (bullet.bulletPrefab, bulletSpawn.position, bulletSpawn.rotation) as GameObject;
-		bulletGO.GetComponent<ExplosiveBulletScript> ().init (bullet);
+		bulletGO.GetComponent<IBulletScript> ().Init (bullet);
 		bulletGO.GetComponent<Transform> ().localScale *= bullet.scalarFactor;
 		bulletGO.GetComponent<MeshRenderer> ().materials [0].color = bullet.color;
 		bulletGO.GetComponent<Rigidbody> ().velocity = bullet.speed * bulletGO.transform.forward;
