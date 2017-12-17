@@ -15,7 +15,7 @@ public class GameControllerScript : MonoBehaviour
 	private UIControllerScript uics;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		if (debug) {
 			scenario = GameObject.Find ("Remove").transform.GetChild (0).gameObject;
@@ -123,8 +123,9 @@ public class GameControllerScript : MonoBehaviour
 
 	void OnApplicationPause (bool pauseStatus)
 	{
-		
 		if (pauseStatus)
 			Pause ();
+		else
+			Resume ();
 	}
 }

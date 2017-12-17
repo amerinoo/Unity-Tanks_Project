@@ -17,7 +17,7 @@ public class WheelScript : MonoBehaviour
 
 	void Update ()
 	{
-		transform.Rotate (Vector3.up * angularSpeed);	
+		transform.Rotate (Vector3.up, angularSpeed * 100);	
 	}
 
 	public float linearSpeed {
