@@ -10,15 +10,20 @@ public class GameControllerScript : MonoBehaviour
 	public GameObject scenario;
 	public int playersCount;
 	public int botsCount;
+	public bool debug;
 
 	private UIControllerScript uics;
 
 	// Use this for initialization
 	void Start ()
 	{
-		
-		scenario = Instantiate (Resources.Load ("Scenarios/" + StaticData.scenario))as GameObject;
-		putTanks ("Players", "Player", true);
+		if (debug) {
+			scenario = GameObject.Find ("Remove").transform.GetChild (0).gameObject;
+		} else {
+			GameObject.Find ("Remove").SetActive (false);
+			scenario = Instantiate (Resources.Load ("Scenarios/" + StaticData.scenario))as GameObject;
+			putTanks ("Players", "Player", true);
+		}
 		playersCount = players.Count;
 		putTanks ("Bots", "Bot", false);
 		botsCount = players.Count;
