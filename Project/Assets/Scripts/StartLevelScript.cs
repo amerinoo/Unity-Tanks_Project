@@ -28,5 +28,9 @@ public class StartLevelScript : MonoBehaviour
 		gameOptions.SetActive (true);
 	}
 
+	public void HideGameOptions ()
+	{
+		gameOptions.SetActive (false);
+	}
 	
 }

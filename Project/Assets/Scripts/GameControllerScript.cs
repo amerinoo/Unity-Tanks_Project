@@ -110,6 +110,12 @@ public class GameControllerScript : MonoBehaviour
 		Time.timeScale = 1.0f;
 	}
 
+	public void Restart ()
+	{
+		Time.timeScale = 1.0f;
+		SceneManager.LoadScene (StaticData.GameScreen);
+	}
+
 	public void EndGame ()
 	{
 		GoMenu ();

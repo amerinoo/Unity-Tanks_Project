@@ -10,6 +10,8 @@ public class HealthManagementScript : MonoBehaviour
 	public bool heal, damage, kill;
 	public GameObject tombstonePref;
 
+	public bool immune;
+
 	private HudControllerScript hcs;
 	// Use this for initialization
 	void Start ()
@@ -24,17 +26,17 @@ public class HealthManagementScript : MonoBehaviour
 		if (hcs != null) {
 			hcs.UpdateHUD (health);
 		}
-		if (heal || Input.GetKeyDown (KeyCode.Z) && index == -1) {
+		if (heal) {
 			IncrementHealth (100);
 			heal = false;
 		}
-		if (damage || Input.GetKeyDown (KeyCode.X) && index == -1) {
+		if (damage) {
 			ApplyDamage (100);
 			damage = false;
 		}
-		if (kill || Input.GetKeyDown (KeyCode.C) && index == -1) {
+		if (kill) {
 			ApplyDamage (health);
-			damage = false;
+			kill = false;
 		}
 
 	}
@@ -49,7 +51,8 @@ public class HealthManagementScript : MonoBehaviour
 
 	public void ApplyDamage (float damage)
 	{
-		health -= damage;
+		if (!immune)
+			health -= damage;
 		if (health <= 0.0f) {
 			GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameControllerScript> ().PlayerDead (index);
 			GameObject go = Instantiate (tombstonePref);

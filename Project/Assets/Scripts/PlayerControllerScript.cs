@@ -11,6 +11,11 @@ public class PlayerControllerScript : IMove
 
 	void Update ()
 	{
+		if (Input.GetButtonDown ("Fire4")) {
+
+			GetComponent<HealthManagementScript> ().immune = !GetComponent<HealthManagementScript> ().immune;
+			Debug.Log (GetComponent<HealthManagementScript> ().immune);
+		}
 	}
 
 	public override float GetVertical ()

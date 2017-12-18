@@ -62,7 +62,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1037476054735580
 GameObject:
   m_ObjectHideFlags: 1
@@ -4312,6 +4312,7 @@ MonoBehaviour:
   kill: 0
   tombstonePref: {fileID: 1065071101145724, guid: 50188b135bb642848ad6b7f171d76a7b,
     type: 2}
+  immune: 0
 --- !u!114 &114714999513479934
 MonoBehaviour:
   m_ObjectHideFlags: 1
