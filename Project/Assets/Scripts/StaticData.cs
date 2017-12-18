@@ -9,7 +9,8 @@ public class StaticData : MonoBehaviour
 	public static int CreditsScreen = 2;
 
 	public static string scenario = "Sandbox";
-	public static string tank = "Simple";
+	public static string tank = "Unity";
+	public static bool easy = true;
 
 	// Use this for initialization
 	void Start ()

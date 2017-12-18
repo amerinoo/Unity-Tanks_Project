@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StartLevelScript : MonoBehaviour
 {
-	public string level;
+	public GameObject gameOptions;
 	// Use this for initialization
 	void Start ()
 	{
@@ -20,8 +20,13 @@ public class StartLevelScript : MonoBehaviour
 
 	public void StartLevel ()
 	{
-		StaticData.scenario = level;
 		SceneManager.LoadScene (StaticData.GameScreen);
 	}
+
+	public void ShowGameOptions ()
+	{
+		gameOptions.SetActive (true);
+	}
+
 	
 }

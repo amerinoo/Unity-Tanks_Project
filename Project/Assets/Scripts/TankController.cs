@@ -25,10 +25,13 @@ public class TankController : MonoBehaviour
 		}
 		transform.Find ("Turret").GetComponent<MeshRenderer> ().material.color = c;
 
-		if (isPlayer)
+		if (isPlayer) {
 			controller = gameObject.AddComponent<PlayerControllerScript> ();
-		else
+		} else {
 			controller = gameObject.AddComponent<EnemyControllerScript> ();
+			controller.GetComponent<EnemyControllerScript> ().easy = StaticData.easy;
+		}
+
 
 		gc = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameControllerScript> ();
 
