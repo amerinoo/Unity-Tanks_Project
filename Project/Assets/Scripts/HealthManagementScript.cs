@@ -6,7 +6,7 @@ public class HealthManagementScript : MonoBehaviour
 {
 	public float health;
 	public int index;
-	private float maxHealth;
+	public float maxHealth;
 	public bool heal, damage, kill;
 	public GameObject tombstonePref;
 
@@ -14,7 +14,7 @@ public class HealthManagementScript : MonoBehaviour
 
 	private HudControllerScript hcs;
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		hcs = GetComponent<HudControllerScript> ();
 		maxHealth = health;

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class HudControllerScript : MonoBehaviour
 {
 	public GameObject bulletsCounter;
-	public GameObject healthCounter;
 	public GameObject cross;
 
 	private Image background;
@@ -15,12 +14,26 @@ public class HudControllerScript : MonoBehaviour
 	private CrossColorScript ccs;
 	private float time = 1.0f;
 
+	RectTransform statusRect;
+
+	Image statusImage;
+
+	float maxRectX;
+
+	float maxHealth;
+
 	// Use this for initialization
 	void Start ()
 	{
 		background = bulletsCounter.transform.Find ("Background").GetComponent<Image> ();
 		bulletsText = bulletsCounter.transform.Find ("BulletsText").GetComponent<Text> ();
-		healthText = healthCounter.transform.Find ("HealthText").GetComponent<Text> ();
+		Transform healthBar = bulletsCounter.transform.parent.Find ("HealthBar");
+		healthText = healthBar.Find ("Text").GetComponent<Text> ();
+		statusRect = healthBar.Find ("Status").GetComponent<RectTransform> ();
+		statusImage = healthBar.Find ("Status").GetComponent<Image> ();
+		maxRectX = statusRect.sizeDelta.x;
+		maxHealth = GetComponent<HealthManagementScript> ().maxHealth;
+
 		ccs = cross.GetComponent<CrossColorScript> ();
 	}
 	
@@ -39,7 +52,11 @@ public class HudControllerScript : MonoBehaviour
 
 	public void UpdateHUD (float health)
 	{
-		healthText.text = health.ToString ();
+		healthText.text = string.Format ("{0}/{1}", health, maxHealth);
+		statusRect.sizeDelta = new Vector2 (health * maxRectX / maxHealth, statusRect.sizeDelta.y);
+		statusRect.anchoredPosition = new Vector2 ((maxRectX - statusRect.sizeDelta.x) / -2, statusRect.anchoredPosition.y);
+		float f = statusRect.sizeDelta.x / maxRectX;
+		statusImage.color = new Color (1 - f, f, 0);
 	}
 
 	public void CheckDistance (bool correct)

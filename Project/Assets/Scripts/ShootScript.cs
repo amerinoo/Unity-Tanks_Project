@@ -50,7 +50,7 @@ public class ShootScript : MonoBehaviour
 
 	void AnimateMan ()
 	{
-		if (manWithButton.parent.gameObject.activeSelf)
+		if (manWithButton.gameObject.activeSelf)
 			manWithButton.GetComponent<Animator> ().SetTrigger ("Shoot");
 	}
 
