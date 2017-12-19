@@ -17,6 +17,7 @@ public class GameControllerScript : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
 	{
+		Time.timeScale = 1.0f;
 		if (debug) {
 			scenario = GameObject.Find ("Remove").transform.GetChild (0).gameObject;
 		} else {
@@ -118,7 +119,11 @@ public class GameControllerScript : MonoBehaviour
 
 	public void EndGame ()
 	{
-		GoMenu ();
+		for (int i = 0; i < playersCount; i++) {
+			players [i].transform.Find ("Tank controller").SendMessage ("DeactivateHud");
+		}
+		Time.timeScale = 0.0f;
+		uics.EndGame ();
 	}
 
 	public void GoMenu ()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIControllerScript : MonoBehaviour
 {
 	public GameObject pauseUI;
+	public GameObject gameOver;
 	// Use this for initialization
 	void Start ()
 	{
@@ -26,4 +27,10 @@ public class UIControllerScript : MonoBehaviour
 	{
 		pauseUI.SetActive (false);
 	}
+
+	public void EndGame ()
+	{
+		gameOver.SetActive (true);
+	}
+
 }

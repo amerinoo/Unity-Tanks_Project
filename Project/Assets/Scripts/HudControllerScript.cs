@@ -46,4 +46,9 @@ public class HudControllerScript : MonoBehaviour
 	{
 		ccs.ChangeColor ((correct) ? Color.green : Color.red);
 	}
+
+	public void DeactivateHud ()
+	{
+		bulletsCounter.transform.parent.gameObject.SetActive (false);
+	}
 }
